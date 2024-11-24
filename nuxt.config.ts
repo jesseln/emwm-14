@@ -10,7 +10,8 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     'nuxt-lodash',
     'floating-vue/nuxt',
-    'nuxt-icon',
+    '@nuxt/devtools',
+    '@vueuse/nuxt' // @vueuse/nuxt an add-on of VueUse, which provides better Nuxt integration auto-import capabilities.
   ],
   vite: {
     server: {
