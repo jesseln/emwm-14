@@ -1130,10 +1130,9 @@ body {
 .section-wrapper:last-child{
 	flex-grow:1000;
 }
-
-/* .section-wrapper:nth-child(-n + 3 of .section-inner){
+.section-wrapper:nth-child(-n + 3 of .section-inner){
 	flex-wrap: nowrap;
-} */
+}
 
 
 .section-shelf-box{
