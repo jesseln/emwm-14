@@ -14,7 +14,7 @@
     "@nuxt/image": "^1.8.1",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/supabase": "^1.4.3",
-    "@pinia/nuxt": "^0.7.0",
+    "@pinia/nuxt": "0.5.5",
     "@types/d3": "^7.4.3",
     "@vueuse/core": "^11.3.0",
     "@vueuse/nuxt": "^11.3.0",
@@ -22,11 +22,13 @@
     "floating-vue": "^5.2.2",
     "nuxt": "^3.14.1592",
     "nuxt-lodash": "^2.5.3",
+    "punycode": "^2.3.1",
     "vue": "latest",
     "vue-router": "latest",
     "vueperslides": "^3.5.1"
   },
   "devDependencies": {
+    "@iconify-json/ic": "^1.2.1",
     "sass": "^1.81.0"
   }
 }
