@@ -782,6 +782,11 @@ export const useReferenceStore = defineStore('reference', ()=>{
                                 itemType: "Mark",
                                 category: 'Mark type (Mark of?)',
                                 option: 'Graffiti'
+                            },
+                            {
+                                itemType: "Mark",
+                                category: 'Mark type (Mark of?)',
+                                option: 'Drawing'
                             }
                         ]
                     }}
