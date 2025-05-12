@@ -66,9 +66,7 @@ onMounted(()=>{
         const articleSection = content.section
         const articleItemType = content.sectionView.view.itemType
         const useFilter = content.sectionView.articleFilter.useFilter
-        const filterItemType = content.sectionView.articleFilter.itemType
-        const filterCategory = content.sectionView.articleFilter.category
-        const filterOption = content.sectionView.articleFilter.option
+        const filterArray = content.sectionView.articleFilter.filterArray
 
         Object.assign(viewStore.libraryDisplay.view, content.sectionView.view)
         Object.assign(viewStore.libraryDisplay.viewType, content.sectionView.viewType)
@@ -80,7 +78,9 @@ onMounted(()=>{
         getAllFilters()
 
         if(useFilter){
-            filterActiveToggle(viewStore.filterObject.get(filterItemType)[filterCategory][filterOption], filterCategory, filterItemType)
+            filterArray.forEach(filterObj => {               
+                filterActiveToggle(viewStore.filterObject.get(filterObj.itemType)[filterObj.category][filterObj.option], filterObj.category, filterObj.itemType)
+            });
             updateFilteredLibrary()
         }
         cloneLibrary(viewStore.libraryData,'libraryData', articleName, articleSection)
@@ -92,7 +92,9 @@ onMounted(()=>{
         cloneReferences(referenceStore.scales, 'scales', articleName, articleSection)
         _cloneLibrary(viewStore.filterLibrary, 'filterLibrary', articleName, articleSection)
         if(useFilter){
-            filterActiveToggle(viewStore.filterObject.get(filterItemType)[filterCategory][filterOption], filterCategory, filterItemType)
+            filterArray.forEach(filterObj => {               
+                filterActiveToggle(viewStore.filterObject.get(filterObj.itemType)[filterObj.category][filterObj.option], filterObj.category, filterObj.itemType)
+            });
             updateFilteredLibrary()
         }
         dataCheck.value = true

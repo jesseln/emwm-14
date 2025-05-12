@@ -777,9 +777,13 @@ export const useReferenceStore = defineStore('reference', ()=>{
                     },
                     articleFilter: {
                         useFilter: true,
-                        itemType: "Mark",
-                        category: 'Mark type (Mark of?)',
-                        option: 'Graffiti'
+                        filterArray: [
+                            {
+                                itemType: "Mark",
+                                category: 'Mark type (Mark of?)',
+                                option: 'Graffiti'
+                            }
+                        ]
                     }}
                 }
             },
@@ -815,9 +819,13 @@ export const useReferenceStore = defineStore('reference', ()=>{
                     },
                     articleFilter: {
                         useFilter: false,
-                        itemType: "Mark",
-                        category: 'Mark type (Mark of?)',
-                        option: 'Graffiti'
+                        filterArray: [
+                            {
+                                itemType: "Mark",
+                                category: 'Mark type (Mark of?)',
+                                option: 'Graffiti'
+                            }
+                        ]
                     }}
                 }
             },

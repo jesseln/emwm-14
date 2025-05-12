@@ -612,7 +612,6 @@ export const useViewStore = defineStore('view', ()=>{
                 if(shelfContent.length > 0){
                     library.push([shelf[0], shelfContent])
                 }
-                // console.log('getFilteredLibrary Function Call', library)
                 return library
             }, [])
         }
