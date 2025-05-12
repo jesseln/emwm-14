@@ -78,10 +78,16 @@ onMounted(()=>{
         getAllFilters()
 
         if(useFilter){
+            console.log('filterArray pre forEach', filterArray)
+            console.log('viewStore.filterObject pre forEach', viewStore.filterObject)
+            console.log('viewStore.filterLibrary pre forEach', viewStore.filterLibrary)
             filterArray.forEach(filterObj => {               
                 filterActiveToggle(viewStore.filterObject.get(filterObj.itemType)[filterObj.category][filterObj.option], filterObj.category, filterObj.itemType)
             });
             updateFilteredLibrary()
+            console.log('filterArray post forEach', filterArray)
+            console.log('viewStore.filterObject post forEach', viewStore.filterObject)
+            console.log('viewStore.filterLibrary post forEach', viewStore.filterLibrary)
         }
         cloneLibrary(viewStore.libraryData,'libraryData', articleName, articleSection)
         cloneLibrary(viewStore.libraryDisplay,'libraryDisplay', articleName, articleSection )
