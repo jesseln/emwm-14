@@ -591,7 +591,8 @@ export const useViewStore = defineStore('view', ()=>{
     })
 
     function getFilterLibrary(){
-        return formattedLibrary.value
+        
+        // return formattedLibrary.value
         filterTotalCount.value = 0
         return formattedLibrary.value
             .reduce((library, shelf) => {
@@ -611,6 +612,7 @@ export const useViewStore = defineStore('view', ()=>{
                 if(shelfContent.length > 0){
                     library.push([shelf[0], shelfContent])
                 }
+                // console.log('getFilteredLibrary Function Call', library)
                 return library
             }, [])
         }
@@ -618,7 +620,7 @@ export const useViewStore = defineStore('view', ()=>{
     const filterTotalCount = ref(0)
 
     function itemFilterCheck(item){
-        return activeFilters.value.every((filterValue)=>{
+        return activeFilters.value.some((filterValue)=>{
             const itemValue = getIFP(item, filterValue.category, filterValue.itemType, 'display name')
             if(isArray(itemValue)) { 
                 return itemValue.includes(filterValue.name) }

@@ -1130,7 +1130,7 @@ body {
 .section-wrapper:last-child{
 	flex-grow:1000;
 }
-.section-wrapper:nth-child(-n + 3 of .section-inner){
+.section-wrapper:nth-child(-n + 3){
 	flex-wrap: nowrap;
 }
 
