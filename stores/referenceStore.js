@@ -745,53 +745,53 @@ export const useReferenceStore = defineStore('reference', ()=>{
                     "Most scholarship on early modern women’s marginalia to date has concentrated on its verbal forms, yet women’s annotations also include visual marks or images of varying degrees of legibility and complexity, ranging from stars and manicules, doodles, copies of typographical ornaments, drawings in pen and ink, and the insertion of images into texts through cutting and pasting. These visual forms, which we have grouped under the term ‘graffiti’, comprise an exciting and largely unexamined sub-corpus within early modern women’s marginalia, providing new evidence of how women read, how they saw their world, and how they used their books. Graffiti also illuminate how women engaged with formal categories of visual expression such as calligraphy, copying and drawing, with implications for our understanding of their education and their relationship to humanism. The collection of graffiti found in our database show how important both texts and images were to the ways in which women perceived and represented their worlds." 
                     ]
             },
-            {
-                type: "library",
-                content: {
-                    name: 'visual',
-                    section: "graffiti",
-                    sectionView: {
-                        view: {
-                        itemType: "Mark",
-                        id: 'MargID',
-                        shelf: 'Graffiti type', //Primary sort
-                        bookend: 'Graffiti type', //Secondary sort
-                        height: 'Not Selected',
-                        colour: 'Graffiti type',
-                    },
-                    viewType: {
-                        id: 'Mark',
-                        shelf: 'Mark',
-                        bookend: 'Mark',
-                        height: 'NotSelected',
-                        colour: 'Mark',
-                    },
-                    pageText: {
-                        queryType: 'Mark ',
-                        queryBreadcrumb: '',
-                        libraryTypeTitle: 'The Marks',
-                        libraryTypeSubtitle: 'in the libraries',
-                    },
-                    zoom: {
-                        zoomLevel: '50'   
-                    },
-                    articleFilter: {
-                        useFilter: true,
-                        filterArray: [
-                            {
-                                itemType: "Mark",
-                                category: 'Mark type (Mark of?)',
-                                option: 'Graffiti'
-                            },
-                            {
-                                itemType: "Mark",
-                                category: 'Mark type (Mark of?)',
-                                option: 'Ownership'
-                            }
-                        ]
-                    }}
-                }
-            },
+            // {
+            //     type: "library",
+            //     content: {
+            //         name: 'visual',
+            //         section: "graffiti",
+            //         sectionView: {
+            //             view: {
+            //             itemType: "Mark",
+            //             id: 'MargID',
+            //             shelf: 'Graffiti type', //Primary sort
+            //             bookend: 'Graffiti type', //Secondary sort
+            //             height: 'Not Selected',
+            //             colour: 'Graffiti type',
+            //         },
+            //         viewType: {
+            //             id: 'Mark',
+            //             shelf: 'Mark',
+            //             bookend: 'Mark',
+            //             height: 'NotSelected',
+            //             colour: 'Mark',
+            //         },
+            //         pageText: {
+            //             queryType: 'Mark ',
+            //             queryBreadcrumb: '',
+            //             libraryTypeTitle: 'The Marks',
+            //             libraryTypeSubtitle: 'in the libraries',
+            //         },
+            //         zoom: {
+            //             zoomLevel: '0'   
+            //         },
+            //         articleFilter: {
+            //             useFilter: true,
+            //             filterArray: [
+            //                 {
+            //                     itemType: "Mark",
+            //                     category: 'Mark type (Mark of?)',
+            //                     option: 'Drawing'
+            //                 },
+            //                 {
+            //                     itemType: "Mark",
+            //                     category: 'Mark type (Mark of?)',
+            //                     option: 'Recording'
+            //                 }
+            //             ]
+            //         }}
+            //     }
+            // },
             {
                 type: "library",
                 content: {
@@ -982,12 +982,6 @@ export const useReferenceStore = defineStore('reference', ()=>{
     const yourCollectionItemBundle = computed (() => {
         return shelfBundle;
     })
-
-
-
-    console.log(yourCollectionItemBundle)
-    // console.log(categoryMap)
-    // console.log(colourMap)
 
       return {  
                 zoomFactor,

@@ -155,6 +155,7 @@ export const useViewStore = defineStore('view', ()=>{
 
     function updateFilteredLibrary(){
         filterLibrary.value = getFilterLibrary()
+        console.log('check  for execution 3')
     }
 
 
@@ -594,8 +595,9 @@ export const useViewStore = defineStore('view', ()=>{
         
         // return formattedLibrary.value
         filterTotalCount.value = 0
+        console.log('formattedLibrary.value',formattedLibrary.value)
         return formattedLibrary.value
-            .reduce((library, shelf) => {
+            .reduce((library, shelf, i, libraryNOFILTER) => {
                 let shelfContent = shelf[1]
                 .reduce((shelf, bookend) => {
                     let bookendContent = bookend[1]
@@ -612,6 +614,11 @@ export const useViewStore = defineStore('view', ()=>{
                 if(shelfContent.length > 0){
                     library.push([shelf[0], shelfContent])
                 }
+                console.log('filterTotalCount.value', filterTotalCount.value)
+                if(filterTotalCount.value === 0){ 
+                    return libraryNOFILTER 
+                }
+                console.log('NO FIRE', filterTotalCount.value)
                 return library
             }, [])
         }

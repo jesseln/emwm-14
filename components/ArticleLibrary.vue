@@ -78,21 +78,17 @@ onMounted(()=>{
         getAllFilters()
 
         if(useFilter){
-            console.log('filterArray pre forEach', filterArray)
-            console.log('viewStore.filterObject pre forEach', viewStore.filterObject)
-            console.log('viewStore.filterLibrary pre forEach', viewStore.filterLibrary)
             filterArray.forEach(filterObj => {               
                 filterActiveToggle(viewStore.filterObject.get(filterObj.itemType)[filterObj.category][filterObj.option], filterObj.category, filterObj.itemType)
             });
             updateFilteredLibrary()
-            console.log('filterArray post forEach', filterArray)
-            console.log('viewStore.filterObject post forEach', viewStore.filterObject)
-            console.log('viewStore.filterLibrary post forEach', viewStore.filterLibrary)
+            console.log('check for execution 2')
         }
+        console.log('viewStore.filterLibrary 3', viewStore.filterLibrary)
         cloneLibrary(viewStore.libraryData,'libraryData', articleName, articleSection)
-        cloneLibrary(viewStore.libraryDisplay,'libraryDisplay', articleName, articleSection )
-        cloneLibrary(viewStore.domainIndex, 'domainIndex', articleName, articleSection )
-        cloneLibrary(viewStore.heightCategory, 'heightCategory', articleName, articleSection )
+        cloneLibrary(viewStore.libraryDisplay,'libraryDisplay', articleName, articleSection)
+        cloneLibrary(viewStore.domainIndex, 'domainIndex', articleName, articleSection)
+        cloneLibrary(viewStore.heightCategory, 'heightCategory', articleName, articleSection)
         _cloneReferences(referenceStore.libraryItemBundle, 'libraryItemBundle', articleName, articleSection)
         cloneReferences(referenceStore.zoomLevel, 'zoomLevel', articleName, articleSection)
         cloneReferences(referenceStore.scales, 'scales', articleName, articleSection)
@@ -102,7 +98,9 @@ onMounted(()=>{
                 filterActiveToggle(viewStore.filterObject.get(filterObj.itemType)[filterObj.category][filterObj.option], filterObj.category, filterObj.itemType)
             });
             updateFilteredLibrary()
+            console.log('viewStore.filterLibrary', viewStore.filterLibrary)
         }
+        console.log('viewStore.filterLibrary 2', viewStore.filterLibrary)
         dataCheck.value = true
     }
 
