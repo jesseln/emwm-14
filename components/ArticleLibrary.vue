@@ -1,6 +1,6 @@
 <template>
         <h2 class="article-view-title">
-            Visualisations of types of marginalia in the database, with graffiti as a percentage against ownership, annotation, and recording.
+            of types of marginalia in the database, with graffiti as a percentage against ownership, annotation, and recording.
         </h2>
         <div v-if="dataCheck"> 
             <div class="article-view-insert">
