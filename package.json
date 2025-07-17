@@ -3,10 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
     "dev": "nuxt dev --host",
+    "build": "nuxi build --preset=cloudflare_pages",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
+    "preview": "npm run build && wrangler pages dev dist/",
+    "deploy": "npm run build && npx wrangler pages deploy dist/",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@iconify-json/ic": "^1.2.1",
-    "sass": "^1.81.0"
+    "sass": "^1.81.0",
+    "wrangler": "^4.24.4"
   }
 }
