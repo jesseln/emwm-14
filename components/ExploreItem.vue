@@ -128,6 +128,13 @@ function handleMouseOut(d) {
     height: 365px;
 }
 
+.topViewClassDrawing{
+    position: absolute;
+	bottom: -116px;
+	left: -80px;
+    clip-path: circle(65px at 154px 200px);
+    height: 400px;
+}
 .topViewClassGraffiti{
     position: absolute;
 	bottom: -116px;
@@ -166,6 +173,13 @@ function handleMouseOut(d) {
 	left: -40px;
     clip-path: circle(65px at 114px 161px);
     height: 325px;
+}
+.topViewClassLibrarians{
+    bottom: 5px;
+    clip-path: circle(65px at 84px 121px);
+    height: 200px;
+    left: -10px;
+    position: absolute;
 }
 
 </style>

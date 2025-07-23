@@ -404,7 +404,7 @@ body {
 }
 
 .shelf-title-box{
-	position: sticky;
+	/* position: sticky; */
 	top: 0;
 	background-color: rgba(255, 255, 255, 0.5);
 	z-index: 1;
@@ -529,11 +529,11 @@ body {
 .article-container .article-view-title{
     margin: 1rem var(--ArticleLibraryMargins) 0;
     /* padding: 2rem 0 1rem; */
-    color: rgb(70, 70, 70);
+    color: rgb(34, 34, 34);
     font-family: "Raleway", sans-serif;
     font-size: 1.1rem;
-    font-weight: 650;
-    line-height: 2.3rem;
+    font-weight: 400;
+    line-height: 1.5rem;
     /* letter-spacing: 0.15rem; */
     text-align: left;
     width: 75%;
@@ -620,7 +620,16 @@ body {
 }
 
 .article-view-insert{
-    margin: 2rem 0 0 0;
+    margin: 0;
+}
+.article-nav-insert{
+    top:-1.7rem;
+    position: sticky;
+	background-color: rgba(255, 255, 255, 0.9);
+	z-index: 10;
+	padding: 0.2rem 0 0.1rem;
+    margin: 0.5rem 0 0;
+	pointer-events : none; 
 }
 
 .article-library-title{
@@ -1145,20 +1154,6 @@ body {
 	height: 10px;
 	width: 100%;
 }
-/* 
-.explore-section-inner:nth-child(7){
-	flex-shrink:1;
-}
-.explore-section-inner:nth-child(8){
-	flex-shrink:1;
-}
-.explore-section-inner:nth-child(9){
-	flex-shrink:1;
-} */
-
-.explore-section-inner:last-of-type{
-	flex-grow:1.1;
-}
 
 .section-inner:last-child{
 	flex-grow:1000;
@@ -1194,17 +1189,16 @@ body {
 
 
 .explore-section-inner{
-    position: relative;
-	margin: 10px 0;
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
-	justify-content: flex-start;
-	align-content: flex-end;
-	align-items: flex-end;
-	/* gap: 0px 7.5px; */
-	flex-grow:1;
+    align-content: flex-end;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1;
     gap: 0;
+    justify-content: space-evenly;
+    margin: 10px 0;
+    position: relative;
 }
 .section-inner{
     position: relative;
@@ -1966,6 +1960,11 @@ body {
     justify-items: center;
     align-content: center;
     justify-content: center;
+}
+
+.no-images{
+    margin: 0 2rem;
+    padding: 0 1.5rem;
 }
 
 .modal-background{

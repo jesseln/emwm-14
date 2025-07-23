@@ -13,7 +13,7 @@
             <h1> 
                 {{ 
                     $route.params.articlePage.charAt(0).toUpperCase() + 
-                    $route.params.articlePage.slice(1).replace("-", " ")
+                    $route.params.articlePage.slice(1).replaceAll("-", " ")
                 }} 
             </h1>
             <h2>
@@ -37,12 +37,16 @@
                 width: articleProps.articleTitle.imageStyle.width + 'rem'
             }">
                 <NuxtImg 
+                
+                fit="cover"
                 :style="{ 
+                                    
                     marginTop: articleProps.articleTitle.imageStyle.marginTop + 'rem',
                     marginRight: articleProps.articleTitle.imageStyle.marginRight + 'rem',
                     marginBottom: articleProps.articleTitle.imageStyle.marginBottom + 'rem',
                     marginLeft: articleProps.articleTitle.imageStyle.marginLeft + 'rem',
-                    transform: 'scale('+ articleProps.articleTitle.imageStyle.scale + ')' 
+                    transform: 'scale('+ articleProps.articleTitle.imageStyle.scale + ')', 
+                    
                 }"
                 :src="articleProps.articleTitle.heroImage"
                 />
@@ -75,7 +79,7 @@ const route = useRoute()
 
 //Reference Constants
 const referenceStore = useReferenceStore();
-const articleProps = ref(referenceStore.articleComponentRoutes[route.params.articlePage.replace("-", "")])
+const articleProps = ref(referenceStore.articleComponentRoutes[route.params.articlePage.replaceAll("-", "")])
 
 </script>
 

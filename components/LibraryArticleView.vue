@@ -3,7 +3,7 @@
     
     <div class="article-shelf" v-for="shelf in filterLibrary" :key="shelf">
         <div v-if="shelf[0] !== 'All Items'" class="shelf-title-box">
-            <h2 class="shelf-title">{{shelf[0]}}</h2>
+            <h2 class="shelf-title">{{shelf[0] == "no data" ? null : shelf[0]}}</h2>
         </div>
         <div class="shelf-inner" >
             <template class="section-wrapper" v-for="bookend in shelf[1]" :key="bookend" >
@@ -22,7 +22,7 @@
                             zoomMid : zoomLevel === '50',
                             zoomIn : zoomLevel === '100',
                         }">
-                            {{ bookend[0] }}
+                            {{ bookend[0] == "no data" ? null : bookend[0] }}
                         </h3>
                         <div class="section-shelf-box">
                         <!-- Shelf Box DO NOT DELETE -->

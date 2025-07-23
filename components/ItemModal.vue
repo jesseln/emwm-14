@@ -2,8 +2,22 @@
     <div class="item-modal-container">
         <div class="item-modal-header">
             <div v-if="!imagePageDisplay">
-                <h2>Details</h2>
-                <!-- <h2></h2> -->
+                <div class="item-modal-header-topBar">
+                        <h2>Details</h2>
+                        <!-- <h2></h2> -->
+                        <div v-if="!imageFound && !imagePageDisplay">
+                            <button  class="shelf-button-item-modal icon-button" 
+                            style="padding: 0.1rem; 
+                        border-radius: 3rem; 
+                        background-color: rgba(0,0,0,0.05); 
+                        color: rgba(0,0,0,0.5);
+                        box-shadow: none"> 
+                            <div class="shelf-button-wrapper item-modal-button no-images">
+                                <h4 class="item-modal-text">No images available</h4>
+                            </div>
+                        </button>
+                    </div>
+                </div>
             </div>
             <div v-if="imagePageDisplay">
                 <h2>Image Viewer <Icon name="ic:baseline-zoom-in" size="1.5rem" /></h2>
@@ -87,20 +101,6 @@
                     </div>
                 </button>
             </div>
-
-            <div v-if="!imageFound && !imagePageDisplay">
-                <button  class="shelf-button-item-modal icon-button" 
-                style="padding: 0.1rem; 
-                border-radius: 3rem; 
-                background-color: rgba(0,0,0,0.05); 
-                color: rgba(0,0,0,0.5);
-                box-shadow: none"> 
-                    <div class="shelf-button-wrapper item-modal-button">
-                        <h4 class="item-modal-text">No images available</h4>
-                    </div>
-                </button>
-            </div>
-
             <div v-if="imagePageDisplay">
                 <button  class="shelf-button-item-modal icon-button" @click="toggleImageDisplay()"> 
                     <div class="shelf-button-wrapper item-modal-icon">
@@ -746,27 +746,28 @@ const imageModalContent = ref(null)
 }
 .item-modal-details-title h3{
 	font-family: 'Raleway', sans-serif;
-	font-size: 1.7rem;
+	font-size: 1.4rem;
 	font-weight: 500;
 	color: rgb(30, 30, 30);
 	width: 100%;
 }
 .item-modal-details-category-wrapper{
+    align-items: flex-start;
     display: flex;
     flex-flow: row wrap;
-    align-items: flex-end;
-    gap: 1.5rem 0;
     flex-grow: 100;
-    max-width: 80vw;
-    align-content: center;
+    gap: 1.5rem 0;
     justify-content: flex-start;
+    max-width: 80vw;
     overflow: hidden;
+    margin: 0 0 1.5rem;
 }
 .item-modal-details-category{
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-start;
     margin: 0 1.5rem 0;
+    flex-direction: column-reverse;
 }
 
 .item-modal-details-null{
@@ -775,8 +776,8 @@ const imageModalContent = ref(null)
 
 .item-modal-details-category h3{
 	font-family: 'Raleway', sans-serif;
-	font-size: 0.9rem;
-	font-weight: 550;
+	font-size: 0.8rem;
+	font-weight: 450;
 	color: rgb(30, 30, 30);
 	width: 100%;
     padding: 0 0 0 0.6rem;
@@ -792,8 +793,8 @@ const imageModalContent = ref(null)
 
 .item-modal-details-category.special-title h3{
 	font-family: 'Raleway', sans-serif;
-	font-size: 0.9rem;
-	font-weight: 550;
+	font-size: 0.85rem;
+	font-weight: 400;
 	color: rgb(30, 30, 30);
 	width: 100%;
 	text-align: left;
@@ -809,20 +810,21 @@ const imageModalContent = ref(null)
 .item-modal-details-category>div{
     width: fit-content;
     display: block;
-    background-color: rgba(121, 103, 0, 0.068);
-    margin: 0.25rem 0 0rem;
+    // background-color: rgba(121, 103, 0, 0.068);
+    margin: 0.25rem 0 0.1rem 0;
     padding: 3px 10px;
-    border-radius: 1rem;
+    // border-radius: 1rem;
 }
 
 .item-modal-details-category p{
-	font-family: 'Raleway', sans-serif;
-	font-size: 0.65rem;
-	font-weight: 500;
-    // letter-spacing: 0.02rem;
-	color: rgb(26, 26, 26);
-	width: 100%;
-	text-align: left;
+    color: #1a1a1a;
+    font-family: 'Raleway',sans-serif;
+    font-size: .7rem;
+    font-weight: 600;
+    text-align: left;
+    width: 100%;
+    padding: 0 0.2rem 0.125rem 0;
+    border-bottom: 0.12rem solid #0000003b;
 }
 .no-pointers{
     pointer-events: none;
@@ -834,6 +836,17 @@ const imageModalContent = ref(null)
     width: 100%;
     display: flex;
     flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+}
+
+.item-modal-header-topBar{
+    margin: 0.25rem 0 0 0;
+    height: clamp(2rem, 4vh, 4rem);
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
     align-content: space-between;

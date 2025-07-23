@@ -1,5 +1,20 @@
 <template>
-    <div class="library-nav-container">
+<div class="library-nav-container">
+    <div class="bottom-label">
+        <div class="library-nav-title-block-colour"></div>
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" :width="43*iconScaleFactor" :height="38*iconScaleFactor" viewBox="0 0 43 38" fill="none">
+            <circle cx="32.7285" cy="28.0532" r="9.35102" fill="#B3DE69"/>
+            <circle cx="21.0395" cy="9.35102" r="9.35102" fill="#BDB9D9"/>
+            <circle cx="9.35102" cy="28.351" r="9.35102" fill="#FB8072"/>
+        </svg> -->
+        <p class="article-colour-label" v-if="libraryDisplay.viewType['colour'] !== 'NotSelected'">
+            <!-- {{libraryDisplay.viewType['colour']}} |  -->
+            Colour Coded by {{categoryMap.get(libraryDisplay.viewType['colour'])[libraryDisplay.view['colour']]}}
+        </p>
+        <p class="article-colour-label" v-else="">
+            Colour Coded by {{categoryMap.get(libraryDisplay.viewType['colour'])[libraryDisplay.view['colour']]}}
+        </p>
+    </div>
 
     <div v-if="libraryDisplay.viewType.colour !== 'NotSelected'" class="library-nav-colour-wrapper">
         <div v-if="viewMap.get(libraryDisplay.viewType.colour)[libraryDisplay.view.colour].func === 'scaleOrdinal'"
@@ -33,9 +48,9 @@
         <div v-if="viewMap.get(libraryDisplay.viewType.colour)[libraryDisplay.view.colour].func === 'scaleSequential' && ordinalColourMap.length >= 50"
                 class="library-nav-colour-block scaleSequential-large-title"> 
                 <h3 class="library-nav-colour-label" >Min: {{getIDP(viewColourBounds[0], 'colour')}}</h3>
-            <div  v-for="bandPoint in  [...Array(51).keys()].map(d => d/51)" :key="bandPoint">
+            <div  v-for="bandPoint in  [...Array(Math.round(width/30)).keys()].map(d => d/(Math.round(width/30)))" :key="bandPoint">
                 <div class="library-nav-colour-item">
-                    <div class="library-nav-colour-label-list">
+                    <div class="library-nav-colour-label-list scaleSequential-largeList">
                         <div class="library-nav-colour-category scaleSequential-large" :style="{ background: colourScaleConverter(bandPoint)}">
                         </div>
                     </div>
@@ -44,22 +59,6 @@
                 <h3 class="library-nav-colour-label" >Max: {{getIDP(viewColourBounds[1], 'colour')}}</h3>
         </div>
     </div>
-    
-            <div class="bottom-label">
-                <div class="library-nav-title-block-colour"></div>
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" :width="43*iconScaleFactor" :height="38*iconScaleFactor" viewBox="0 0 43 38" fill="none">
-                    <circle cx="32.7285" cy="28.0532" r="9.35102" fill="#B3DE69"/>
-                    <circle cx="21.0395" cy="9.35102" r="9.35102" fill="#BDB9D9"/>
-                    <circle cx="9.35102" cy="28.351" r="9.35102" fill="#FB8072"/>
-                </svg> -->
-                <p class="article-colour-label" v-if="libraryDisplay.viewType['colour'] !== 'NotSelected'">
-                    <!-- {{libraryDisplay.viewType['colour']}} |  -->
-                    Colour highlights: {{categoryMap.get(libraryDisplay.viewType['colour'])[libraryDisplay.view['colour']]}}
-                </p>
-                <p class="article-colour-label" v-else="">
-                    Colour highlights: {{categoryMap.get(libraryDisplay.viewType['colour'])[libraryDisplay.view['colour']]}}
-                </p>
-            </div>
 </div>
 </template>
 
@@ -67,6 +66,7 @@
 import { storeToRefs } from "pinia";
 import * as d3 from "d3";
 const {articleView} = defineProps(['articleView']);
+const { width, height } = useWindowSize()
 
 //Article Store
 const articleStore = useArticleStore();
@@ -226,10 +226,10 @@ const iconScaleFactor = ref(0.5)
 
 .library-nav-container{
     margin: 0 var(--ArticleLibraryMargins) 0;
-    padding: 0 0 0.5rem;
+    padding: 0 0 0.2rem;
     display: grid;
     grid-template-rows: auto auto;
-    justify-content: flex-start;
+    justify-content: center;
     border-top: 2px solid rgb(255, 255, 255);
     // height: 100%;
     max-width: 100vw;
@@ -237,7 +237,7 @@ const iconScaleFactor = ref(0.5)
     // border-bottom: 2px solid rgb(241, 241, 241);
 }
 .library-nav-colour-wrapper{
-    grid-row: 1/2;
+    grid-row: 2/2;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -250,7 +250,7 @@ const iconScaleFactor = ref(0.5)
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    padding: 0.3rem 0 0.2rem;
+    padding: 0;
     gap: 0.35rem 0;
 }
 
@@ -288,16 +288,14 @@ const iconScaleFactor = ref(0.5)
 }
 
 .scaleSequential-large{
-    padding: 0.5rem 0.45rem;
-    margin:  0.05rem 0.01rem; 
-    border: 0.01rem solid rgb(255, 255, 255);
-    border-radius: 0rem;
-    min-width:0.25rem;
-    min-height: 0.25rem;
-    // width: 50%;
-    // box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 12px 0px;
+    border: .01rem solid #fff;
+    border-radius: 0;
+    margin: .05rem 0.05vw;
+    height: 0.15vw;
+    min-width: 0.1rem;
+    padding: .5rem min(0.55vw, 0.5rem);
+    border-radius: .2rem;
 }
-
 .library-nav-colour-label-list{
     padding: 0 0.1rem;
     margin: 0 0.1rem;
@@ -306,7 +304,11 @@ const iconScaleFactor = ref(0.5)
     align-items: center;
     flex-wrap: nowrap;
     flex-direction: column;
+}
 
+.scaleSequential-largeList{
+    padding: 0;
+    margin: 0;
 }
 .library-nav-colour-label{
     padding: 0 0.2rem;
@@ -476,21 +478,21 @@ const iconScaleFactor = ref(0.5)
 	color: black;
 }
     .bottom-label {
-        grid-row: 2/2;
+        grid-row: 1/2;
         display: flex;
         flex-flow: row wrap;
         align-items: center;
         margin: 0;
         // gap: 0.5rem;
         // min-width: 16rem;
-        padding: 0.5rem 1.25rem 0.75rem 0.5rem;
+        padding: 0 1.25rem 0 0.5rem;
         font-family: "Raleway", sans-serif;
         font-size: 2rem;
         font-weight: 700;
         letter-spacing: 0.05rem;
         line-height: 1.25rem;
         color: black;
-        justify-content: flex-start;
+        justify-content: center;
         // background-color: #e7e7e7;
         }
     .article-colour-label {
@@ -503,10 +505,11 @@ const iconScaleFactor = ref(0.5)
         // line-height: 1.5rem;
         // letter-spacing: 0.15rem;
         color: black;
-	font-family: Raleway, sans-serif;
-	font-size: 0.8rem;
-	font-weight:600;
-        // color: rgb(80, 80, 80);
+        font-family: 'Raleway', sans-serif;
+        font-size: 0.8rem;
+        font-weight:500;
+        padding: 0 0 0.25rem;
+            // color: rgb(80, 80, 80);
         text-align: left;
         }
 

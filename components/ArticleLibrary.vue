@@ -1,16 +1,17 @@
 <template>
         <h2 class="article-view-title">
-            of types of marginalia in the database, with graffiti as a percentage against ownership, annotation, and recording.
+            {{ content.sectionTitle }}
+            <!-- of types of marginalia in the database, with graffiti as a percentage against ownership, annotation, and recording. -->
         </h2>
         <div v-if="dataCheck"> 
-            <div class="article-view-insert">
-                <LibraryArticleView :articleView="{
+            <div class="article-nav-insert">
+            <LibraryBottomNavArticle :articleView="{
                     name: content.name, 
                     section: content.section
                     }" />
             </div>
-            <div >
-            <LibraryBottomNavArticle :articleView="{
+            <div class="article-view-insert">
+                <LibraryArticleView :articleView="{
                     name: content.name, 
                     section: content.section
                     }" />
