@@ -73,7 +73,7 @@
         </div>
         <div class="library-nav-dropdown">
             <div class="library-nav-title-block">
-                <h3 class="library-nav-view">Choose a category to sort each group:</h3>
+                <h3 class="library-nav-view">Group Items</h3>
             </div>
             <div class="aselect" >
                 <div ref="sort" class="selector" @click="toggle('sort')">
@@ -120,7 +120,7 @@
                 </div>
             </div>
         </div>
-        <div class="library-nav-dropdown">
+        <!-- <div class="library-nav-dropdown">
             <div class="library-nav-title-block">
                 <h3 class="library-nav-view">Choose a category to resize each item:</h3>
             </div>
@@ -167,10 +167,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="library-nav-dropdown">
             <div class="library-nav-title-block">
-                <h3 class="library-nav-view">Choose a category to change item colours:</h3>
+                <h3 class="library-nav-view">Colour Code Items</h3>
             </div>
             <div class="aselect" >
                 <div ref="colour" class="selector" @click="toggle('colour')">

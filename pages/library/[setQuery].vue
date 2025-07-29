@@ -8,11 +8,13 @@
         <h2 class="query-breadcrumb">Total Items: {{ dataSize }}</h2>
     </div> -->
     <div class="shelf-separator-container"><div class="shelf-separator"></div></div>
-    <!-- <div class="explore-library-title">
+    <div class="explore-library-title">
         <h1>Search</h1>
         <h4>The library presents <span>the Agents</span>, the 'women marginalists' in the collection, <span>the Books</span> they owned and <span>the Marks</span> they made in the margins during the 16th and 17th centuries.</h4>
-        </div> -->
+        </div>
+
     <div class="mainSearch-wrapper">
+
         <!-- <div class="type-selector-wrapper" >
             <NuxtLink to="/library/agents">
         <VMenu
@@ -92,6 +94,8 @@
         </VMenu>
         </NuxtLink>
         </div> -->
+
+
         <!-- <div class="explore-button-wrapper">
         <button ref="toExploreButton" @click="scrollToExplore" class="to-explore-button shelf-button">
             <Icon name="ic:baseline-arrow-downward" size="3rem" />
@@ -99,17 +103,13 @@
         </button>
         </div> -->
 
-       
+    
 
-        <div class="search-wrapper">
-            <div class="search-box-container form-style-1">
-                <div class="search-box-main" >
-                    <Icon name="ic:baseline-search" size="1.5rem" class="search-icon-main" />
-                    <input class="prevent-close-on-click item-modal-input" v-model="searchEntry" type="text" :placeholder="`${route.params.setQuery.slice(0,-1)} search`" autofocus ref="markInput"/>
-                </div>
-            </div>
-        </div>
-        <div class="mainSearch-selected-category-wrapper" v-if="route.params.setQuery === 'searchView'">
+        <div 
+            class="mainSearch-selected-category-wrapper" 
+            :class="{ inactive: hideSearch }" 
+            v-if="route.params.setQuery === 'searchView'"
+        >
             <div class="mainSearch-jumpTo">
                 <div class="mainSearch-selected-category-title">
                     <h2 >Library Categories</h2>
@@ -291,12 +291,23 @@
             </div>
         </div>
     </div>
+
+
             <!-- <div class="unique-entries" >
                 <h4 >Unique entries: {{ Object.keys(searchList(filterObject.get('Mark')[category], searchEntry)).length }}</h4>
             </div>  -->
 
+            <div class="search-wrapper">
+            <div class="search-box-container form-style-1">
+                <div class="search-box-main" >
+                    <Icon name="ic:baseline-search" size="1.5rem" class="search-icon-main" />
+                    <input class="prevent-close-on-click item-modal-input" v-model="searchEntry" type="text" :placeholder="`${route.params.setQuery.slice(0,-1)} search`" autofocus ref="markInput"/>
+                </div>
+            </div>
+        </div>
+
             <div class="nav-div">
-                <!-- <LibraryNav /> -->
+                <LibraryNav />
             </div>
 
             <div class="filters-bar">
@@ -327,14 +338,16 @@
                     No items Selected
                 </h3>
             </div>
-            <div class="goto-search-box">
-                    <div class="goto-search-inner" :class="{ active : getActiveFilters.length}">
-                        <h3 >Show Items in Library</h3>
+                <div class="goto-search-box-wrapper">
+                    <div class="goto-search-box" @click="toggleViewSearch()">
+                        <div class="goto-search-inner" :class="{ active : getActiveFilters.length}">
+                            <h3 >Show Selected Items</h3>
+                        </div>
                     </div>
-                </div>
-            <div class="goto-search-box">
-                    <div class="goto-search-inner">
-                        <h3>Clear selection</h3>
+                    <div class="goto-search-box">
+                        <div class="goto-search-inner">
+                            <h3>Clear selection</h3>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -343,12 +356,12 @@
                 <div class="lds-default lds-grey"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>   
             </div>
             <div v-if="dataCheck">
-                <!-- <LibraryView /> -->
+                <LibraryView />
             </div>
 
         <div class="nav-bottom-div">
             <div v-if="dataCheck && useY > 300">
-            <!-- <LibraryBottomNav /> -->
+            <LibraryBottomNav />
             </div>
         </div>
         <!-- <button @click="showAnnotations=!showAnnotations" class="annotation-button" :class="{ 'active': showAnnotations }">
@@ -420,6 +433,12 @@ const { handleObjectProperty,
 const markScrollTo= ref(null)
 const agentScrollTo= ref(null)
 const bookScrollTo= ref(null)
+
+const hideSearch = ref(false)
+
+function toggleViewSearch(){
+    hideSearch.value = !hideSearch.value
+}
 
 function scrollToElement(elementArray, index){
     elementArray[index].scrollIntoView({ behavior: "smooth", block: "start" });

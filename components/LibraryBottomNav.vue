@@ -3,8 +3,8 @@
 
     <div v-if="libraryDisplay.viewType.colour !== 'NotSelected'" class="library-nav-colour-wrapper">
         <div class="library-catalogue-title-box">
-            <h2 class="library-catalogue-title">Colour Categories</h2>
-            <h3 class="library-catalogue-subtitle">This colour legend shows the values for each item</h3>
+            <h2 class="library-catalogue-title">Colour Code</h2>
+            <h3 class="library-catalogue-subtitle"></h3>
         </div>
         <div v-if="viewMap.get(libraryDisplay.viewType.colour)[libraryDisplay.view.colour].func === 'scaleOrdinal'"
             class="library-nav-colour-block"> 
@@ -51,7 +51,7 @@
     
             <div class="bottom-label">
                 <div class="library-nav-title-block-colour">
-                    <h3 class="library-nav-view-bottom">Current Category:</h3>
+                    <h3 class="library-nav-view-bottom">Colour Code Selected:</h3>
                 </div>
                 <!-- <svg xmlns="http://www.w3.org/2000/svg" :width="43*iconScaleFactor" :height="38*iconScaleFactor" viewBox="0 0 43 38" fill="none">
                     <circle cx="32.7285" cy="28.0532" r="9.35102" fill="#B3DE69"/>
@@ -402,8 +402,8 @@ const iconScaleFactor = ref(0.5)
         min-width: 16rem;
         padding: 0.5rem 1.25rem 0.5rem 0.5rem;
         font-family: "Raleway", sans-serif;
-        font-size: 0.8rem;
-        font-weight: 600;
+        font-size: 0.925rem;
+        font-weight: 500;
         letter-spacing: 0.05rem;
         line-height: 1.25rem;
         color: black;

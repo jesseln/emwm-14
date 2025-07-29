@@ -85,6 +85,7 @@ onMounted(()=>{
             updateFilteredLibrary()
             console.log('check for execution 2')
         }
+        
         console.log('viewStore.filterLibrary 3', viewStore.filterLibrary)
         cloneLibrary(viewStore.libraryData,'libraryData', articleName, articleSection)
         cloneLibrary(viewStore.libraryDisplay,'libraryDisplay', articleName, articleSection)

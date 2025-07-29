@@ -728,7 +728,7 @@ const imageModalContent = ref(null)
     display: flex;
     flex-flow: column wrap;
     border-right: 1px solid #ccc;
-    min-width: 7vw;
+    min-width: max(7vw, 8rem);
     padding: 0 0.5rem 0 0;
     justify-content: flex-start;
     align-content: flex-start;

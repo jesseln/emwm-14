@@ -497,7 +497,6 @@ const iconScaleFactor = ref(0.5)
         }
     .article-colour-label {
         margin: 0;
-        padding: 0;
         display: block;
         // font-family: "Raleway", sans-serif;
         // font-size: 1.15rem;

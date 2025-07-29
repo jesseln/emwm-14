@@ -406,9 +406,10 @@ export const useReferenceStore = defineStore('reference', ()=>{
     const article_DRAWING = ref({
         articleTitle: 
             {
-                subHeading: "Definition of 'Drawing'",
+                subHeading: "Definition",
                 subHeadingContent: "Visual marks such as illustrations, copies of ornaments and typography, manicules, stars and flowers as marks of emphasis, pasted images.",
-                heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/mark-images/21/MargID_21_(1_of_1).jpg",
+                // heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/mark-images/21/MargID_21_(1_of_1).jpg",
+                heroImage: "",
                 imageStyle: { 
                     height: 40,
                     width: 25,
@@ -522,9 +523,10 @@ export const useReferenceStore = defineStore('reference', ()=>{
     const article_GRAFFITI = ref({
         articleTitle: 
             {
-                subHeading: "Definition of 'Graffiti'",
+                subHeading: "Definition",
                 subHeadingContent: "Marks, visual and verbal, that do not record information nor register ownership, reading, recording or drawing, such as scribble, handwriting practice, doodles, blots, stains and smudges.",
-                heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/mark-images/227/MargID_227_(1_of_4).jpg",
+                heroImage: "",
+                // heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/mark-images/227/MargID_227_(1_of_4).jpg",
                 imageStyle: { 
                     height: 40,
                     width: 25,
@@ -609,9 +611,10 @@ export const useReferenceStore = defineStore('reference', ()=>{
     const article_WOMENAGENTS = ref({
         articleTitle: 
             {
-                subHeading: "Definition of 'Women Agents'",
+                subHeading: "Definition",
                 subHeadingContent: "The historical woman subject involved in creating a marginal mark",
-                heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/mark-images/625/MargID_625_(1_of_1).JPG",
+                heroImage: "",
+                // heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/mark-images/625/MargID_625_(1_of_1).JPG",
                 imageStyle: { 
                     height: 40,
                     width: 25,
@@ -722,9 +725,10 @@ export const useReferenceStore = defineStore('reference', ()=>{
     const article_OWNERSHIP = ref({
         articleTitle: 
             {
-                subHeading: "Definition of 'Ownership'",
+                subHeading: "Definition",
                 subHeadingContent: "Marginal forms showing an agent’s possession of a text, from ownership of the text as property to more temporary and contingent claims. Ownership marks include signature, ‘her book’, dedications, armorial bindings, ciphers and bookplates, and in our database can include any additional details such as price and date of purchase.",
-                heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/mark-images/47/MargID_47_(2_of_2).jpg",
+                heroImage: "",
+                // heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/mark-images/47/MargID_47_(2_of_2).jpg",
                 imageStyle: { 
                     height: 40,
                     width: 25,
@@ -917,9 +921,10 @@ export const useReferenceStore = defineStore('reference', ()=>{
     const article_READING = ref({
         articleTitle: 
             {
-                subHeading: "Definition of 'Reading'",
+                subHeading: "Definition",
                 subHeadingContent: "Marks of active reading including comment, underlining, emphasis, symbol (such as flowers, crosses, dots, even the imprint of a nail) and marks indicating revision, correction and translation.",
-                heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/mark-images/372/MargID_372_(2_of_2).jpeg",
+                heroImage: "",
+                // heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/mark-images/372/MargID_372_(2_of_2).jpeg",
                 imageStyle: { 
                     height: 40,
                     width: 25,
@@ -1015,9 +1020,10 @@ export const useReferenceStore = defineStore('reference', ()=>{
     const article_RECORDING = ref({
         articleTitle: 
             {
-                subHeading: "Definition of 'Recording'",
+                subHeading: "Definition",
                 subHeadingContent: "Any textual mark recording information that is not related to the text, using the book as convenient paper stock for other, unrelated information. Marks of recording include accounts, prices of goods, lists of dates, calculations, recipes, poems and letters unrelated to the book’s contents.",
-                heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/mark-images/48/MargID_48_(2_of_4).jpg",
+                // heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/mark-images/48/MargID_48_(2_of_4).jpg",
+                heroImage: "",
                 imageStyle: { 
                     height: 40,
                     width: 25,
@@ -1168,9 +1174,10 @@ export const useReferenceStore = defineStore('reference', ()=>{
     const article_ATTRIBUTION = ref({
         articleTitle: 
             {
-                subHeading: "Definition of 'Attribution'",
+                subHeading: "Definition",
                 subHeadingContent: "Attribution is the process of ascribing of marginal marks to agents.",
-                heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/mark-images/80/MargID_80_(2_of_2).jpg",
+                // heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/mark-images/80/MargID_80_(2_of_2).jpg",
+                heroImage: "",
                 imageStyle: { 
                     height: 40,
                     width: 25,
@@ -1301,9 +1308,10 @@ export const useReferenceStore = defineStore('reference', ()=>{
     const article_TYPESOFBOOK = ref({
         articleTitle: 
             {
-                subHeading: "Definition of 'Types of Book'",
+                subHeading: "Definition",
                 subHeadingContent: "The database classifies the type of book that women annotated according to 39 categories.",
-                heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/book-images/289/BookID_289_(3_of_3).JPG",
+                // heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/book-images/289/BookID_289_(3_of_3).JPG",
+                heroImage: "",
                 imageStyle: { 
                     height: 40,
                     width: 25,
@@ -1498,9 +1506,10 @@ export const useReferenceStore = defineStore('reference', ()=>{
     const article_LOCATIONS = ref({
         articleTitle: 
             {
-                subHeading: "Definition of 'Locations'",
+                subHeading: "Definition",
                 subHeadingContent: "Where marginalia is located within the book (such as on pastedowns, flyleaves, endpapers, title page, margins) and on the page (top, bottom, right or left margin; centre, middle, left, right; reversed)",
-                heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/book-images/96/BookID_96_(2_of_4).jpg",
+                // heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/book-images/96/BookID_96_(2_of_4).jpg",
+                heroImage: "",
                 imageStyle: { 
                     height: 40,
                     width: 25,
@@ -1688,9 +1697,10 @@ export const useReferenceStore = defineStore('reference', ()=>{
     const article_REPOSITORIES = ref({
         articleTitle: 
             {
-                subHeading: "Definition of 'Repositories'",
+                subHeading: "Definition",
                 subHeadingContent: "The archive or library in which the books in the database are located",
-                heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/book-images/226/BookID_226_(2_of_2).JPG",
+                heroImage: "",
+                // heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/book-images/226/BookID_226_(2_of_2).JPG",
                 imageStyle: { 
                     height: 40,
                     width: 25,
@@ -1858,9 +1868,10 @@ export const useReferenceStore = defineStore('reference', ()=>{
     const article_LIBRARIANS = ref({
         articleTitle: 
             {
-                subHeading: "Definition of 'Librarians'",
+                subHeading: "Definition",
                 subHeadingContent: "Contributors to the Library of Early Modern Women’s Marginalia",
-                heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/book-images/31/BookID_31_(1_of_6).jpg",
+                // heroImage: "https://hmgugjmjfcvjtmrrafjm.supabase.co/storage/v1/object/public/book-images/31/BookID_31_(1_of_6).jpg",
+                heroImage: "",
                 imageStyle: { 
                     height: 40,
                     width: 25,
@@ -1957,6 +1968,8 @@ export const useReferenceStore = defineStore('reference', ()=>{
             },
         ]
     })
+
+
     
     const articleComponentRoutes = reactive({
         womenagents: article_WOMENAGENTS,
@@ -1972,11 +1985,38 @@ export const useReferenceStore = defineStore('reference', ()=>{
         librarians: article_LIBRARIANS,
     })
 
+
+// SEARCH VIEW - DEFAULT //
+        const exploreView = ({
+        //Query - How Many Agents In Collection?
+        view: {
+            itemType: "Book",
+            id: 'BookID',
+            shelf: 'Not Selected', //Primary sort
+            bookend: 'Not Selected', //Secondary sort
+            height: 'Not Selected',
+            colour: 'Number of marks',
+        },
+        viewType: {
+            id: 'Book',
+            shelf: 'NotSelected',
+            bookend: 'NotSelected',
+            height: 'NotSelected',
+            colour: 'Book',
+        },
+        pageText: {
+            queryType: 'Books ',
+            queryBreadcrumb: '',
+            libraryTypeTitle: 'The Books',
+            libraryTypeSubtitle: 'in the libraries',
+        }
+    })
+
     const viewRouteQueries = reactive({
+        searchView: exploreView,
         // agents: agentsView,
         // books: booksView,
         // marks: marksView,
-        // searchView: exploreView,
         // agent01: agentsInCollection,
         // agent02: agentsYearsMade,
         // book01: booksTheyRead,
@@ -2205,30 +2245,7 @@ export const useReferenceStore = defineStore('reference', ()=>{
     //         libraryTypeSubtitle: 'in the libraries',
     //     }
     // })
-    // const exploreView = ({
-    //     //Query - How Many Agents In Collection?
-    //     view: {
-    //         itemType: "Book",
-    //         id: 'BookID',
-    //         shelf: 'Not Selected', //Primary sort
-    //         bookend: 'Not Selected', //Secondary sort
-    //         height: 'Not Selected',
-    //         colour: 'Number of marks',
-    //     },
-    //     viewType: {
-    //         id: 'Book',
-    //         shelf: 'NotSelected',
-    //         bookend: 'NotSelected',
-    //         height: 'NotSelected',
-    //         colour: 'Book',
-    //     },
-    //     pageText: {
-    //         queryType: 'Books ',
-    //         queryBreadcrumb: '',
-    //         libraryTypeTitle: 'The Books',
-    //         libraryTypeSubtitle: 'in the libraries',
-    //     }
-    // })
+
 
     // const marksView = ({
     //     //Query - How Many Agents In Collection?
