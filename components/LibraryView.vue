@@ -9,25 +9,27 @@
                 </datalist>
             </div> 
         </div> -->
-    
-        <div class="slider-wrapper" v-if="useY > 300">
-            <div class="library-catalogue-title-box">
-                <h2 class="library-catalogue-title">Adjust Zoom</h2>
-                <h3 class="library-catalogue-subtitle">Click below to Zoom In and Out of the library</h3>
+        <!-- v-if="useY > 300" -->
+        <div class="slider-panel">
+          <div class="slider-wrapper" >
+              <div class="library-catalogue-title-box">
+                  <h2 class="library-catalogue-title">Adjust Zoom</h2>
+                  <h3 class="library-catalogue-subtitle">Click below to Zoom In and Out of the library</h3>
 
-            </div>
-            <div class="shelf-button slider-box">
-                <p @click="zoomOut">-</p>  
-                <input class="slider range" type="range" min="0" max="100" v-model="zoomLevel" id="fader" step="50" list="volsettings" ref="zoomSlider">
-                <p @click="zoomIn">+</p>  
-            </div>
-            <div id="volsettings" >
-                <p value="0" label="Close-Up" :class="{ activeZoom : zoomLevel === '100'}">Close-Up</p>
-                <p value="50" label="Standard View" :class="{ activeZoom : zoomLevel === '50'}">Standard View</p>
-                <p value="100" label="Overview" :class="{ activeZoom : zoomLevel === '0'}">Overview</p>
-            </div>
+              </div>
+              <div class="shelf-button slider-box">
+                  <p @click="zoomOut">-</p>  
+                  <input class="slider range" type="range" min="0" max="100" v-model="zoomLevel" id="fader" step="50" list="volsettings" ref="zoomSlider">
+                  <p @click="zoomIn">+</p>  
+              </div>
+              <div id="volsettings" >
+                  <p value="0" label="Close-Up" :class="{ activeZoom : zoomLevel === '100'}">- Close-Up</p>
+                  <p value="50" label="Standard View" :class="{ activeZoom : zoomLevel === '50'}">- Standard View</p>
+                  <p value="100" label="Overview" :class="{ activeZoom : zoomLevel === '0'}">- Overview</p>
+              </div>
+          </div>
         </div>
-    <div class="shelf" v-for="shelf in filterLibrary" :key="shelf">
+    <div class="shelf-SearchPage" v-for="shelf in filterLibrary" :key="shelf">
         <div class="shelf-title-box">
             <h2 class="shelf-title">{{shelf[0]}}</h2>
         </div>
@@ -220,11 +222,11 @@ const { getItemLibraryYC,
     transform:rotate(-270deg);
     top: 0%;
     right: -62.5%;
-    margin: 0.4rem 0 0.4rem 0.4rem ;
+    margin: 0 ;
     grid-row: 2/3;
-    padding: 0.5rem 0 0.5rem 0;
-    border-bottom: 2px solid #ebebeb;
-    width: 7.5vw;
+    padding: 0;
+    border-bottom: none;
+    width: 7rem;
 
   }
   .library-catalogue-title{
@@ -250,7 +252,6 @@ const { getItemLibraryYC,
 input {
   width: 50%;
 }
-
 .section-inner.zoomOut{
 	gap: 0px 0.28rem;
 }
@@ -260,19 +261,21 @@ input {
 .section-inner.zoomIn{
 	gap: 0px 0.8rem;
 }
-
-
-
+.slider-panel{
+  float: right;
+  position: sticky;
+  right: 3%;
+  top: 50%;
+  margin: 28vh 0;
+  z-index: 5;
+}
 .slider-wrapper{
-    z-index: 200;
-    position: fixed;
+    position: relative;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
     justify-content: flex-start;
     align-content: flex-start;
-    top: 60%;
-    right: 3%;
     -webkit-transform:rotate(90deg);
     -moz-transform:rotate(90deg);
     -o-transform:rotate(90deg);
@@ -326,7 +329,7 @@ div#volsettings {
     -moz-transform:rotate(-90deg);
     -o-transform:rotate(-90deg);
     transform:rotate(-270deg);
-    width: 10vh;
+    width: 6rem;
     height: 15vh;
     // height: fit-content;
     display: flex;

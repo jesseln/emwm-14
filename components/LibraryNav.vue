@@ -7,7 +7,7 @@
     <div class="library-nav-wrapper">
         <div class="library-nav-dropdown">
             <div class="library-nav-title-block">
-                <h3 class="library-nav-view">Choose a category to group each item:</h3>
+                <h3 class="library-nav-view">Group items:</h3>
             </div>
             <div class="aselect" >
                 <div ref="section" class="selector" @click="toggle('section')">
@@ -73,7 +73,7 @@
         </div>
         <div class="library-nav-dropdown">
             <div class="library-nav-title-block">
-                <h3 class="library-nav-view">Group Items</h3>
+                <h3 class="library-nav-view">Sort items:</h3>
             </div>
             <div class="aselect" >
                 <div ref="sort" class="selector" @click="toggle('sort')">
@@ -170,7 +170,7 @@
         </div> -->
         <div class="library-nav-dropdown">
             <div class="library-nav-title-block">
-                <h3 class="library-nav-view">Colour Code Items</h3>
+                <h3 class="library-nav-view">Colour code items:</h3>
             </div>
             <div class="aselect" >
                 <div ref="colour" class="selector" @click="toggle('colour')">
@@ -505,7 +505,7 @@ Object.entries(referenceStore.viewMap.get("Mark")).forEach(entry => {
 	font-weight: 600;
     // letter-spacing: 0.05rem;
     line-height: 1.25rem;
-	color: rgb(125, 84, 238);
+	color: rgb(30, 30, 30);
 	// color: rgb(34, 34, 34);
 }
 

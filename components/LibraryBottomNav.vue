@@ -2,10 +2,10 @@
     <div class="library-nav-container">
 
     <div v-if="libraryDisplay.viewType.colour !== 'NotSelected'" class="library-nav-colour-wrapper">
-        <div class="library-catalogue-title-box">
+        <!-- <div class="library-catalogue-title-box">
             <h2 class="library-catalogue-title">Colour Code</h2>
             <h3 class="library-catalogue-subtitle"></h3>
-        </div>
+        </div> -->
         <div v-if="viewMap.get(libraryDisplay.viewType.colour)[libraryDisplay.view.colour].func === 'scaleOrdinal'"
             class="library-nav-colour-block"> 
 
@@ -36,8 +36,7 @@
         </div>
         <div v-if="viewMap.get(libraryDisplay.viewType.colour)[libraryDisplay.view.colour].func === 'scaleSequential' && ordinalColourMap.length >= 50"
                 class="library-nav-colour-block scaleSequential-large-title"> 
-                <h3 class="library-nav-colour-label" >Min: {{getIDP(viewColourBounds[0], 'colour')}}</h3>
-            <div  v-for="bandPoint in  [...Array(51).keys()].map(d => d/51)" :key="bandPoint">
+            <div  v-for="bandPoint in  [...Array(Math.round(width/30)).keys()].map(d => d/(Math.round(width/30)))" :key="bandPoint">
                 <div class="library-nav-colour-item">
                     <div class="library-nav-colour-label-list">
                         <div class="library-nav-colour-category scaleSequential-large" :style="{ background: colourScaleConverter(bandPoint)}">
@@ -45,32 +44,36 @@
                     </div>
                 </div>
             </div>
-                <h3 class="library-nav-colour-label" >Max: {{getIDP(viewColourBounds[1], 'colour')}}</h3>
         </div>
     </div>
     
             <div class="bottom-label">
-                <div class="library-nav-title-block-colour">
-                    <h3 class="library-nav-view-bottom">Colour Code Selected:</h3>
+                <h3 class="library-nav-colour-label" >Min: {{getIDP(viewColourBounds[0], 'colour')}}</h3>
+                <div class="bottom-label-inner">
+                    <div class="library-nav-title-block-colour">
+                        <h3 class="library-nav-view-bottom">Colour Code Selected:</h3>
+                    </div>
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" :width="43*iconScaleFactor" :height="38*iconScaleFactor" viewBox="0 0 43 38" fill="none">
+                        <circle cx="32.7285" cy="28.0532" r="9.35102" fill="#B3DE69"/>
+                        <circle cx="21.0395" cy="9.35102" r="9.35102" fill="#BDB9D9"/>
+                        <circle cx="9.35102" cy="28.351" r="9.35102" fill="#FB8072"/>
+                    </svg> -->
+                    <p v-if="libraryDisplay.viewType['colour'] !== 'NotSelected'">
+                        {{libraryDisplay.viewType['colour']}} | 
+                        {{categoryMap.get(libraryDisplay.viewType['colour'])[libraryDisplay.view['colour']]}}
+                    </p>
+                    <p v-else="">
+                        {{categoryMap.get(libraryDisplay.viewType['colour'])[libraryDisplay.view['colour']]}}
+                    </p>
                 </div>
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" :width="43*iconScaleFactor" :height="38*iconScaleFactor" viewBox="0 0 43 38" fill="none">
-                    <circle cx="32.7285" cy="28.0532" r="9.35102" fill="#B3DE69"/>
-                    <circle cx="21.0395" cy="9.35102" r="9.35102" fill="#BDB9D9"/>
-                    <circle cx="9.35102" cy="28.351" r="9.35102" fill="#FB8072"/>
-                </svg> -->
-                <p v-if="libraryDisplay.viewType['colour'] !== 'NotSelected'">
-                    {{libraryDisplay.viewType['colour']}} | 
-                    {{categoryMap.get(libraryDisplay.viewType['colour'])[libraryDisplay.view['colour']]}}
-                </p>
-                <p v-else="">
-                    {{categoryMap.get(libraryDisplay.viewType['colour'])[libraryDisplay.view['colour']]}}
-                </p>
+                <h3 class="library-nav-colour-label" >Max: {{getIDP(viewColourBounds[1], 'colour')}}</h3>
             </div>
 </div>
 </template>
 
 <script setup>
 import { storeToRefs } from "pinia";
+const { width, height } = useWindowSize()
 
 //View State
 const viewStore = useViewStore();
@@ -146,14 +149,17 @@ const iconScaleFactor = ref(0.5)
 }
 
 .library-nav-container{
-    margin: 0 clamp(5rem, 10vw, 8rem) 0;
+    // margin: 0 clamp(10rem,11vw,15rem);
     display: grid;
     grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
     justify-content: center;
     border-top: 2px solid rgb(255, 255, 255);
     // height: 100%;
     max-width: 100vw;
     z-index: 15;
+    background-color: #fff;
+    pointer-events: all;
 }
 .library-nav-colour-wrapper{
     grid-row: 1/2;
@@ -227,15 +233,16 @@ const iconScaleFactor = ref(0.5)
 
 }
 .library-nav-colour-label{
-    padding: 0 0.2rem;
-    text-align: center;
-    font-family: "Raleway", sans-serif;
-    font-size: 0.7rem;
+    color: #000;
+    font-family: Raleway,sans-serif;
+    font-size: .7rem;
     font-weight: 500;
-    line-height: 0.8rem;
-    color: black;
-    width: 100%;
+    line-height: .8rem;
+    padding: 0 .2rem;
+    text-align: center;
     white-space: nowrap;
+    /* width: 100%; */
+    flex-shrink: 1;
 }
 .library-nav-dropdown{
     display: flex;
@@ -387,28 +394,35 @@ const iconScaleFactor = ref(0.5)
     // position: relative;
     margin: 0;
     font-family: "Source Sans 3", sans-serif;
-	font-size: 0.9rem;
-	font-weight: 400;
+	font-size: 1rem;
+	font-weight: 450;
     letter-spacing: 0.05rem;
     line-height: 1.25rem;
 	color: black;
 }
     .bottom-label {
         grid-row: 2/3;
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+        color: black;
         display: flex;
         flex-flow: row wrap;
+        /* min-width: 100%; */
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
         align-items: center;
-        gap: 0.5rem;
-        min-width: 16rem;
-        padding: 0.5rem 1.25rem 0.5rem 0.5rem;
-        font-family: "Raleway", sans-serif;
-        font-size: 0.925rem;
-        font-weight: 500;
-        letter-spacing: 0.05rem;
-        line-height: 1.25rem;
-        color: black;
+    }
+
+    .bottom-label-inner{
+        align-items: baseline;
+        display: flex;
+        flex-flow: row nowrap;
+        font-family: Raleway,sans-serif;
+        font-size: .9rem;
+        font-weight: 750;
+        gap: .5rem;
         justify-content: center;
-        // background-color: #e7e7e7;
-        }
+        padding: .5rem;
+    }
 
 </style>
