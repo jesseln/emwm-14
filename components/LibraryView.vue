@@ -262,12 +262,12 @@ input {
 	gap: 0px 0.8rem;
 }
 .slider-panel{
-  float: right;
-  position: sticky;
-  right: 3%;
-  top: 50%;
-  margin: 28vh 0;
-  z-index: 5;
+    float: right;
+    margin: 28vh 0;
+    position: sticky;
+    right: 3%;
+    top: 50%;
+    z-index: 5;
 }
 .slider-wrapper{
     position: relative;
